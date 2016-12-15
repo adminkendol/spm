@@ -431,7 +431,7 @@
                         <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
                         <?php foreach($menu as $m){ ?>
                         <li class="nav-item start">
-                            <a href="index.html" class="nav-link ">
+                            <a href="<?php echo base_url().$m->mob_href;?>/" class="nav-link ">
                                 <i class="<?php echo $m->icon; ?>"></i>
                                 <span class="title"><?php echo $m->menu_name; ?></span>
                                 <span class="selected"></span>

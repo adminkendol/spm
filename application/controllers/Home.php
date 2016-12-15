@@ -8,10 +8,11 @@ class Home extends Base {
         $this->data['title']="HOME";
         $this->data['tab']="1";
         $this->data['subtitle']="Dashboard";
-        $this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"#","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Active Ticket","mob_href":"#","icon":"icon-envelope-open"},{"menu_id":"2","menu_name":"Completed Ticket","mob_href":"#","icon":"icon-paper-clip"}]');
-        if ( !isset($_SESSION['username']) ) {
+        //$this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"#","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Active Ticket","mob_href":"#","icon":"icon-envelope-open"},{"menu_id":"2","menu_name":"Completed Ticket","mob_href":"#","icon":"icon-paper-clip"}]');
+        $this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"home","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Upload","mob_href":"upload","icon":"icon-envelope-open"}]');
+        /*if ( !isset($_SESSION['username']) ) {
             redirect('home/login');
-        }
+        }*/
     }
 	
     public function index(){
@@ -29,6 +30,7 @@ class Home extends Base {
     }
     public function dash(){
         //$this->data['menu']=$this->getmenu(0,'','','','0');
+        $this->data['datas']=$this->Proccess->select_dash();
         $this->tempe->load($this->themes.'/modul',$this->themes.'/dashboard',$this->data);
     }
     public function error(){

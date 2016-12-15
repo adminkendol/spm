@@ -18,6 +18,7 @@ class Base extends CI_Controller {
 	parent::__construct();
 	$this->load->helper('url');
         //$this->load->model(array('base/basedata'));
+        $this->load->model('Proccess');
         $this->themes=$this->config->config['themes'];
     }
     /*public function getmenu($par=0,$id,$offset,$limit,$order) {

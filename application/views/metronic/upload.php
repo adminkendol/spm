@@ -1,45 +1,3 @@
-<!--
-<!doctype html>
-<html>
-    <head>
-        <title>SPM</title>
-        <!--<link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.css') ?>"/>-->
-    <!--    <style>
-            body{
-                padding: 15px
-            }
-            .wrapper{
-                width: 600px
-            }
-            form p{
-                margin: 5px 0px;
-                color: red;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="wrapper">
-            <h4>SPM</h4>
-            <?php
-            echo form_open_multipart($action);
-
-            echo '<div class="form-group">';
-            echo '<label>Judul ' . form_error('judul') . '</label>'; // show error judul
-            echo form_input('judul', $judul, 'class="form-control" placeholder="Judul"');
-            echo '</div>';
-
-            echo '<div class="form-group">';
-            echo '<label>Excel ' . $error . '</label>'; // show error upload
-            echo form_upload('userfile');
-            echo '</div>';
-
-            echo form_submit('mysubmit', 'Upload', 'class="btn btn-primary"');
-            echo form_close();
-            ?>
-        </div>
-    </body>
-</html>
--->
 <div class="row">
     <div class="col-md-12">
     <!-- BEGIN SAMPLE FORM PORTLET-->
@@ -89,15 +47,30 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase">Data Preview</span>
+                    <span class="caption-subject bold uppercase">Preview</span>
+                    &nbsp;
                 </div>
+                <div class="caption font-dark">
+                    <span class="caption-subject bold uppercase">Periode&nbsp;<?php echo $response[0]['periode'];?></span>
+                </div>
+                
                 <div class="actions">
-                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm active"><input type="radio" name="options" class="toggle" id="option1">Actions</label>
-                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm"><input type="radio" name="options" class="toggle" id="option2">Settings</label>
-                    </div>
+                    <form role="form" class="form-horizontal" action="<?php echo base_url();?>upload/save_file/" method="post" enctype="multipart/form-data">
+                    <!--<div class="btn-group btn-group-devided" data-toggle="buttons">-->
+                        <!--<label class="btn btn-transparent dark btn-outline btn-circle btn-sm active"><input type="radio" name="options" class="toggle" id="option1">Actions</label>
+                        <label class="btn btn-transparent dark btn-outline btn-circle btn-sm"><input type="radio" name="options" class="toggle" id="option2">Settings</label>-->
+                        <button type="submit" class="btn btn-transparent dark btn-outline btn-circle btn-sm active">Save</button>
+                    <!--</div>-->
+                    </form>
                 </div>
+                
             </div>
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-speedometer font-dark"></i>
+                    <span class="caption-subject bold uppercase">VOICE</span>
+                </div>
+            </div>    
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover table-header-fixed" id="sample_1">
                     <thead>
@@ -130,6 +103,51 @@
                                 } ?></td>
                             <td><?php for($a=0;$a<count($response[$i]['data']);$a++){ 
                                     echo $response[$i]['data'][$a]['three']."<br>"; 
+                                } ?></td>
+                        </tr>
+                    <?php } ?>    
+                    </tbody>
+               </table>
+            </div>
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-direction font-dark"></i>
+                    <span class="caption-subject bold uppercase">DATA</span>
+                </div>
+            </div>    
+            
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover table-header-fixed" id="sample_1">
+                    <thead>
+                        <tr class="">
+                            <th> Area </th>
+                            <th> Parameter </th>
+                            <th> Telkomsel </th>
+                            <th> Xl </th>
+                            <th> Indosat </th>
+                            <th> Three </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php for($i=0;$i<count($responseA);$i++){ ?>
+                        <tr>
+                            <td><?php echo $responseA[$i]['area'];?></td>
+                            <td>
+                                <?php for($a=0;$a<count($responseA[$i]['data']);$a++){ 
+                                    echo $responseA[$i]['data'][$a]['parameter']."<br>"; 
+                                } ?>
+                            </td>
+                            <td><?php for($a=0;$a<count($responseA[$i]['data']);$a++){ 
+                                    echo $responseA[$i]['data'][$a]['telkomsel']."<br>"; 
+                                } ?></td>
+                            <td><?php for($a=0;$a<count($responseA[$i]['data']);$a++){ 
+                                    echo $responseA[$i]['data'][$a]['xl']."<br>"; 
+                                } ?></td>
+                            <td><?php for($a=0;$a<count($responseA[$i]['data']);$a++){ 
+                                    echo $responseA[$i]['data'][$a]['indosat']."<br>"; 
+                                } ?></td>
+                            <td><?php for($a=0;$a<count($responseA[$i]['data']);$a++){ 
+                                    echo $responseA[$i]['data'][$a]['three']."<br>"; 
                                 } ?></td>
                         </tr>
                     <?php } ?>    
