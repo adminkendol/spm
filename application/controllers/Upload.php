@@ -11,7 +11,7 @@ class Upload extends Base
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         //$this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"#","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Active Ticket","mob_href":"#","icon":"icon-envelope-open"},{"menu_id":"2","menu_name":"Completed Ticket","mob_href":"#","icon":"icon-paper-clip"}]');
-        $this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"home","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Upload","mob_href":"upload","icon":"icon-envelope-open"}]');
+        $this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"home","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Upload","mob_href":"upload","icon":"icon-envelope-open"},{"menu_id":"3","menu_name":"exit","mob_href":"user/exit","icon":"icon-login"}]');
     }
 
     public function index($error = NULL){

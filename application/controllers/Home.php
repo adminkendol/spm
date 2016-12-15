@@ -9,7 +9,7 @@ class Home extends Base {
         $this->data['tab']="1";
         $this->data['subtitle']="Dashboard";
         //$this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"#","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Active Ticket","mob_href":"#","icon":"icon-envelope-open"},{"menu_id":"2","menu_name":"Completed Ticket","mob_href":"#","icon":"icon-paper-clip"}]');
-        $this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"home","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Upload","mob_href":"upload","icon":"icon-envelope-open"}]');
+        $this->data['menu']=json_decode('[{"menu_id":"2","menu_name":"Dashboard","mob_href":"home","icon":"icon-bar-chart"},{"menu_id":"2","menu_name":"Upload","mob_href":"upload","icon":"icon-envelope-open"},{"menu_id":"3","menu_name":"exit","mob_href":"user/exit","icon":"icon-login"}]');
         /*if ( !isset($_SESSION['username']) ) {
             redirect('home/login');
         }*/
